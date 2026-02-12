@@ -1,0 +1,1023 @@
+2026-02-02 14:58:48,359 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-02 14:58:48,361 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'producto', 'stock', 'informacion', 'out_of_scope'}
+2026-02-02 14:58:48,361 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-02 14:58:49,565 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-02 14:58:49,593 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-02 14:58:49,744 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-02 14:59:01,811 | INFO | API | Mensaje recibido: stock santiago de bmbas johnson
+2026-02-02 14:59:01,811 | INFO | AGENT | Procesando mensaje: stock santiago de bmbas johnson
+2026-02-02 14:59:01,812 | INFO | LLM | Interpretando mensaje: stock santiago de bmbas johnson
+2026-02-02 14:59:03,847 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 14:59:03,858 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'marca': 'johnson'}}
+2026-02-02 14:59:03,859 | INFO | AGENT | Dominio detectado: stock
+2026-02-02 14:59:03,859 | INFO | AGENT | Entrando Dominio: stock
+2026-02-02 14:59:03,859 | INFO | AGENT | Entrando al handle stock: None
+2026-02-02 14:59:03,859 | INFO | AGENT | Producto: bombas
+2026-02-02 14:59:03,859 | INFO | AGENT | Marca: johnson
+2026-02-02 14:59:03,859 | INFO | AGENT | Ubicación slot: None
+2026-02-02 14:59:03,859 | INFO | AGENT | Scope: single
+2026-02-02 14:59:03,859 | INFO | AGENT | Validacion Base: None
+2026-02-02 14:59:03,859 | INFO | AGENT | Buscando similares: None
+2026-02-02 14:59:03,859 | INFO | FAISS | FAISS → index=stock, texto='bombas johnson', top_k=9
+2026-02-02 14:59:04,070 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-02 14:59:04,076 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-02 14:59:04,077 | INFO | AGENT | Resultados FAISS obtenidos: 9
+2026-02-02 14:59:04,078 | INFO | AGENT | Resultados FAISS: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '21306', 'descripcion': 'BOMBA ASPIRACION PROFUNDA BCN  DJ-150M 1,5CV', 'producto': 'bomba aspiracion profunda bcn  dj-150m 1,5cv', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'un', 'stock_total': 12, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 4, 'sandiego': 1, 'sanxenxo': 1}}]
+2026-02-02 14:59:04,078 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-02 14:59:04,078 | INFO | AGENT | Respuesta enviada al cliente: 📦 **Stock disponible**
+
+| Producto                     | Tienda               | Stock |
+|------------------------------|...
+2026-02-02 15:01:41,689 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-02 15:01:41,690 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'informacion', 'stock', 'producto', 'out_of_scope'}
+2026-02-02 15:01:41,691 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-02 15:01:42,822 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-02 15:01:42,848 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-02 15:01:42,920 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-02 15:01:52,319 | INFO | API | Mensaje recibido: stock santiago de bmbas johnson
+2026-02-02 15:01:52,319 | INFO | AGENT | Procesando mensaje: stock santiago de bmbas johnson
+2026-02-02 15:01:52,319 | INFO | LLM | Interpretando mensaje: stock santiago de bmbas johnson
+2026-02-02 15:01:55,285 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 15:01:55,298 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'marca': 'johnson'}}
+2026-02-02 15:01:55,298 | INFO | AGENT | Dominio detectado: stock
+2026-02-02 15:01:55,298 | INFO | AGENT | Entrando Dominio: stock
+2026-02-02 15:01:55,298 | INFO | AGENT | Entrando al handle stock: None
+2026-02-02 15:01:55,298 | INFO | AGENT | Producto: bombas
+2026-02-02 15:01:55,298 | INFO | AGENT | Marca: johnson
+2026-02-02 15:01:55,298 | INFO | AGENT | Ubicación slot: None
+2026-02-02 15:01:55,298 | INFO | AGENT | Scope: single
+2026-02-02 15:01:55,298 | INFO | AGENT | Validacion Base: None
+2026-02-02 15:01:55,298 | INFO | AGENT | Buscando similares: None
+2026-02-02 15:01:55,299 | INFO | FAISS | FAISS → index=stock, texto='bombas johnson', top_k=9
+2026-02-02 15:01:55,860 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-02 15:01:55,866 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-02 15:01:55,866 | INFO | AGENT | Resultados FAISS obtenidos: 9
+2026-02-02 15:01:55,867 | INFO | AGENT | Resultados FAISS: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '21306', 'descripcion': 'BOMBA ASPIRACION PROFUNDA BCN  DJ-150M 1,5CV', 'producto': 'bomba aspiracion profunda bcn  dj-150m 1,5cv', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'un', 'stock_total': 12, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 4, 'sandiego': 1, 'sanxenxo': 1}}]
+2026-02-02 15:01:55,867 | INFO | LLM | Interpretando mensaje: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}]
+2026-02-02 15:01:55,867 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-02 15:01:55,867 | INFO | AGENT | Respuesta enviada al cliente: 📦 **Stock disponible**
+
+| Producto                     | Tienda               | Stock |
+|------------------------------|...
+2026-02-02 15:16:26,382 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-02 15:16:26,384 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'informacion', 'producto', 'stock', 'out_of_scope'}
+2026-02-02 15:16:26,384 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-02 15:16:27,683 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-02 15:16:27,714 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-02 15:16:27,851 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-02 15:16:35,235 | INFO | API | Mensaje recibido: stock santiago de bmbas johnson
+2026-02-02 15:16:35,236 | INFO | AGENT | Procesando mensaje: stock santiago de bmbas johnson
+2026-02-02 15:16:35,236 | INFO | LLM | Interpretando mensaje: stock santiago de bmbas johnson
+2026-02-02 15:16:37,773 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 15:16:37,801 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'marca': 'johnson'}}
+2026-02-02 15:16:37,801 | INFO | AGENT | Dominio detectado: stock
+2026-02-02 15:16:37,801 | INFO | AGENT | Entrando Dominio: stock
+2026-02-02 15:16:37,801 | INFO | AGENT | Entrando al handle stock: None
+2026-02-02 15:16:37,802 | INFO | AGENT | Producto: bombas
+2026-02-02 15:16:37,802 | INFO | AGENT | Marca: johnson
+2026-02-02 15:16:37,802 | INFO | AGENT | Ubicación slot: None
+2026-02-02 15:16:37,802 | INFO | AGENT | Scope: single
+2026-02-02 15:16:37,802 | INFO | AGENT | Validacion Base: None
+2026-02-02 15:16:37,803 | INFO | AGENT | Buscando similares: None
+2026-02-02 15:16:37,803 | INFO | FAISS | FAISS → index=stock, texto='bombas johnson', top_k=9
+2026-02-02 15:16:38,295 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-02 15:16:38,315 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-02 15:16:38,316 | INFO | AGENT | Resultados FAISS obtenidos: 9
+2026-02-02 15:16:38,317 | INFO | AGENT | Resultados FAISS: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '21306', 'descripcion': 'BOMBA ASPIRACION PROFUNDA BCN  DJ-150M 1,5CV', 'producto': 'bomba aspiracion profunda bcn  dj-150m 1,5cv', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'un', 'stock_total': 12, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 4, 'sandiego': 1, 'sanxenxo': 1}}]
+2026-02-02 15:16:38,317 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-02 15:16:38,317 | INFO | AGENT | Respuesta enviada al cliente: 📦 **Stock total por tiendas**
+
+| Producto                       | Almeiras   | Ferrol     | Sandiego   | Santiago   | Sa...
+2026-02-03 07:10:07,793 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 07:10:07,799 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'out_of_scope', 'producto', 'informacion'}
+2026-02-03 07:10:07,800 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 07:10:12,267 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 07:10:13,567 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 07:10:17,411 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 07:10:55,736 | INFO | API | Mensaje recibido: stock de bombas jognson en santiago
+2026-02-03 07:10:55,736 | INFO | AGENT | Procesando mensaje: stock de bombas jognson en santiago
+2026-02-03 07:10:55,736 | INFO | LLM | Interpretando mensaje: stock de bombas jognson en santiago
+2026-02-03 07:10:59,686 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:10:59,699 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'marca': 'jognson', 'ubicacion': 'santiago'}}
+2026-02-03 07:10:59,699 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 07:10:59,699 | INFO | AGENT | Entrando Dominio: stock
+2026-02-03 07:10:59,699 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-03 07:10:59,699 | INFO | AGENT | [STOCK] Marca: jognson
+2026-02-03 07:10:59,699 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 07:10:59,699 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 07:10:59,700 | INFO | FAISS | FAISS → index=stock, texto='bombas jognson', top_k=9
+2026-02-03 07:11:00,573 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 07:11:00,586 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 07:11:05,636 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:11:05,641 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 07:11:05,641 | INFO | AGENT | Respuesta enviada al cliente: ¡Hola! 😊 Aquí tienes el stock de bombas en nuestra tienda de Santiago:
+
+1. **BOMBA PRS 20/12-200 230V BCN**
+   - Stock e...
+2026-02-03 07:11:21,785 | INFO | API | Mensaje recibido: dame el stock de ferrol
+2026-02-03 07:11:21,786 | INFO | AGENT | Procesando mensaje: dame el stock de ferrol
+2026-02-03 07:11:21,786 | INFO | LLM | Interpretando mensaje: dame el stock de ferrol
+2026-02-03 07:11:22,963 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:11:22,966 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {}}
+2026-02-03 07:11:22,967 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 07:11:22,967 | INFO | AGENT | Entrando Dominio: stock
+2026-02-03 07:11:22,968 | INFO | AGENT | [STOCK] Producto: None
+2026-02-03 07:11:22,968 | INFO | AGENT | [STOCK] Marca: None
+2026-02-03 07:11:22,968 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 07:11:22,969 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 07:11:22,969 | INFO | AGENT | Respuesta enviada al cliente: No encontré stock disponible....
+2026-02-03 07:11:35,436 | INFO | API | Mensaje recibido: de todos los locales
+2026-02-03 07:11:35,436 | INFO | AGENT | Procesando mensaje: de todos los locales
+2026-02-03 07:11:35,436 | INFO | LLM | Interpretando mensaje: de todos los locales
+2026-02-03 07:11:38,828 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:11:38,835 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {}}
+2026-02-03 07:11:38,835 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 07:11:38,835 | INFO | AGENT | Entrando Dominio: stock
+2026-02-03 07:11:38,835 | INFO | AGENT | [STOCK] Producto: None
+2026-02-03 07:11:38,835 | INFO | AGENT | [STOCK] Marca: None
+2026-02-03 07:11:38,836 | INFO | AGENT | [STOCK] Scope: all
+2026-02-03 07:11:38,836 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 07:11:38,836 | INFO | AGENT | Respuesta enviada al cliente: No encontré stock disponible....
+2026-02-03 07:19:32,715 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 07:19:32,718 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'out_of_scope', 'producto', 'informacion'}
+2026-02-03 07:19:32,718 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 07:19:33,926 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 07:19:33,961 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 07:19:34,130 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 07:19:47,111 | INFO | API | Mensaje recibido: stock de bombas en ferrol
+2026-02-03 07:19:47,111 | INFO | AGENT | Procesando mensaje: stock de bombas en ferrol
+2026-02-03 07:19:47,111 | INFO | LLM | Interpretando mensaje: stock de bombas en ferrol
+2026-02-03 07:19:49,012 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:19:49,024 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'ubicacion': 'ferrol'}}
+2026-02-03 07:19:49,024 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 07:19:49,024 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-03 07:19:49,024 | INFO | AGENT | [STOCK] Marca: None
+2026-02-03 07:19:49,024 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 07:19:49,024 | INFO | AGENT | [STOCK] Ubicación: ferrol
+2026-02-03 07:19:49,024 | INFO | FAISS | FAISS → index=stock, texto='bombas', top_k=9
+2026-02-03 07:19:50,095 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 07:19:50,102 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 07:19:53,814 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:19:53,820 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 07:20:02,854 | INFO | API | Mensaje recibido: y en santiago
+2026-02-03 07:20:02,855 | INFO | AGENT | Procesando mensaje: y en santiago
+2026-02-03 07:20:02,855 | INFO | LLM | Interpretando mensaje: y en santiago
+2026-02-03 07:20:04,872 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:20:04,876 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'producto': 'bombas'}}
+2026-02-03 07:20:04,876 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 07:20:04,876 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-03 07:20:04,876 | INFO | AGENT | [STOCK] Marca: None
+2026-02-03 07:20:04,876 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 07:20:04,876 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 07:20:04,876 | INFO | FAISS | FAISS → index=stock, texto='bombas', top_k=9
+2026-02-03 07:20:05,079 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 07:20:05,104 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 07:20:08,591 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:20:08,594 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 07:20:20,162 | INFO | API | Mensaje recibido: dame horario de atencion de santiago
+2026-02-03 07:20:20,162 | INFO | AGENT | Procesando mensaje: dame horario de atencion de santiago
+2026-02-03 07:20:20,162 | INFO | LLM | Interpretando mensaje: dame horario de atencion de santiago
+2026-02-03 07:20:21,819 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 07:20:21,826 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 07:20:21,828 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 07:20:21,829 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 07:20:21,829 | INFO | AGENT | Tipo info: horario
+2026-02-03 07:20:21,829 | INFO | AGENT | Scope: single
+2026-02-03 07:20:21,829 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 07:20:21,829 | INFO | INFORMACION | Texto usuario: dame horario de atencion de santiago
+2026-02-03 07:20:21,829 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 07:20:21,832 | INFO | FAISS | FAISS → index=informacion, texto='dame horario de atencion de santiago', top_k=1
+2026-02-03 07:20:22,037 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 07:20:22,039 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 07:20:22,039 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 07:20:22,039 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 07:20:22,040 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 07:20:22,040 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 07:20:22,040 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 07:20:23,842 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:53:53,915 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 15:53:53,924 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'out_of_scope', 'informacion', 'producto'}
+2026-02-03 15:53:53,924 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 15:53:57,662 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 15:53:59,054 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 15:54:03,243 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 15:55:29,577 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 15:55:29,578 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 15:55:29,578 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 15:55:33,034 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:55:33,063 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 15:55:33,063 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 15:55:33,063 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 15:55:33,064 | INFO | AGENT | Tipo info: horario
+2026-02-03 15:55:33,064 | INFO | AGENT | Scope: single
+2026-02-03 15:55:33,064 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 15:55:33,064 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 15:55:33,064 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 15:55:33,065 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 15:55:33,989 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 15:55:33,998 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 15:55:34,000 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 15:55:34,000 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 15:55:34,000 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 15:55:34,001 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 15:55:34,001 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 15:55:37,221 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:56:36,261 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 15:56:36,263 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 15:56:36,263 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 15:56:38,276 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:56:38,277 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 15:56:38,277 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 15:56:38,277 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 15:56:38,277 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 15:56:38,278 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 15:56:38,278 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 15:56:38,278 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 15:56:38,674 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 15:56:38,680 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 15:56:38,680 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 15:57:43,041 | INFO | API | Mensaje recibido: dame stock de termo eco lydos en todos  
+2026-02-03 15:57:43,043 | INFO | AGENT | Procesando mensaje: dame stock de termo eco lydos en todos  
+2026-02-03 15:57:43,043 | INFO | LLM | Interpretando mensaje: dame stock de termo eco lydos en todos  
+2026-02-03 15:57:45,904 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:57:45,914 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {'producto': 'termo eco lydos'}}
+2026-02-03 15:57:45,916 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 15:57:45,917 | INFO | AGENT | [STOCK] Producto: termo eco lydos
+2026-02-03 15:57:45,917 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 15:57:45,918 | INFO | AGENT | [STOCK] Scope: all
+2026-02-03 15:57:45,918 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 15:57:45,918 | INFO | FAISS | FAISS → index=stock, texto='termo eco lydos HTW', top_k=9
+2026-02-03 15:57:46,128 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 15:57:46,133 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 15:57:50,765 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:57:50,766 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 15:58:39,477 | INFO | API | Mensaje recibido: que productos ariston tienes
+2026-02-03 15:58:39,477 | INFO | AGENT | Procesando mensaje: que productos ariston tienes
+2026-02-03 15:58:39,477 | INFO | LLM | Interpretando mensaje: que productos ariston tienes
+2026-02-03 15:58:40,954 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 15:58:40,963 | WARNING | LLM | Dominio inválido detectado: all
+2026-02-03 15:58:40,963 | INFO | LLM | Resultado LLM normalizado: {'domain': 'out_of_scope', 'scope': 'all', 'slots': {}}
+2026-02-03 15:58:40,964 | INFO | AGENT | Dominio detectado: out_of_scope
+2026-02-03 16:01:29,169 | INFO | API | Mensaje recibido: te has equivocado la marca del termo es ariston y no HTW, dame el stock
+2026-02-03 16:01:29,170 | INFO | AGENT | Procesando mensaje: te has equivocado la marca del termo es ariston y no HTW, dame el stock
+2026-02-03 16:01:29,176 | INFO | LLM | Interpretando mensaje: te has equivocado la marca del termo es ariston y no HTW, dame el stock
+2026-02-03 16:01:31,399 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:01:31,402 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'termo', 'marca': 'ariston'}}
+2026-02-03 16:01:31,403 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 16:01:31,403 | INFO | AGENT | [STOCK] Producto: termo
+2026-02-03 16:01:31,403 | INFO | AGENT | [STOCK] Marca: ariston
+2026-02-03 16:01:31,404 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 16:01:31,404 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 16:01:31,405 | INFO | FAISS | FAISS → index=stock, texto='termo ariston', top_k=9
+2026-02-03 16:01:32,492 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 16:01:32,498 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 16:01:32,499 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 16:10:34,378 | INFO | API | Mensaje recibido: Horarios
+2026-02-03 16:10:34,378 | INFO | AGENT | Procesando mensaje: Horarios
+2026-02-03 16:10:34,378 | INFO | LLM | Interpretando mensaje: Horarios
+2026-02-03 16:10:35,747 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:10:35,764 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {}}
+2026-02-03 16:10:35,766 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 16:10:35,766 | INFO | AGENT | Slot ubicación recibido: None
+2026-02-03 16:10:35,766 | INFO | AGENT | Tipo info: None
+2026-02-03 16:10:35,766 | INFO | AGENT | Scope: single
+2026-02-03 16:10:49,396 | INFO | API | Mensaje recibido: todos
+2026-02-03 16:10:49,396 | INFO | AGENT | Procesando mensaje: todos
+2026-02-03 16:10:49,396 | INFO | LLM | Interpretando mensaje: todos
+2026-02-03 16:10:50,798 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:10:50,804 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'all', 'slots': {}}
+2026-02-03 16:10:50,807 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 16:10:50,807 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 16:10:50,809 | INFO | AGENT | Tipo info: None
+2026-02-03 16:10:50,809 | INFO | AGENT | Scope: all
+2026-02-03 16:10:53,433 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:10:57,187 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:11:00,459 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:11:28,164 | INFO | API | Mensaje recibido: no veo el de ferrol
+2026-02-03 16:11:28,164 | INFO | AGENT | Procesando mensaje: no veo el de ferrol
+2026-02-03 16:11:28,164 | INFO | LLM | Interpretando mensaje: no veo el de ferrol
+2026-02-03 16:11:29,686 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:11:29,698 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'all', 'slots': {}}
+2026-02-03 16:11:29,698 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 16:11:29,698 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 16:11:29,699 | INFO | AGENT | Tipo info: None
+2026-02-03 16:11:29,699 | INFO | AGENT | Scope: all
+2026-02-03 16:11:31,424 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:11:34,958 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:11:37,533 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:12:21,924 | INFO | API | Mensaje recibido: dame el de ferrol  desgraciadillo
+2026-02-03 16:12:21,924 | INFO | AGENT | Procesando mensaje: dame el de ferrol  desgraciadillo
+2026-02-03 16:12:21,924 | INFO | LLM | Interpretando mensaje: dame el de ferrol  desgraciadillo
+2026-02-03 16:12:23,393 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:12:23,399 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'Ferrol'}}
+2026-02-03 16:12:23,399 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 16:12:23,400 | INFO | AGENT | Slot ubicación recibido: Ferrol
+2026-02-03 16:12:23,400 | INFO | AGENT | Tipo info: None
+2026-02-03 16:12:23,401 | INFO | AGENT | Scope: single
+2026-02-03 16:12:23,401 | INFO | INFORMACION | Obteniendo información de ubicación: Ferrol
+2026-02-03 16:12:23,402 | INFO | INFORMACION | Texto usuario: dame el de ferrol  desgraciadillo
+2026-02-03 16:12:23,402 | INFO | INFORMACION | Obteniendo información de ubicación: Ferrol
+2026-02-03 16:12:23,403 | INFO | FAISS | FAISS → index=informacion, texto='dame el de ferrol  desgraciadillo', top_k=1
+2026-02-03 16:12:23,735 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 16:12:23,736 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 16:12:23,736 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Datos de contacto de la delegación de Ferrol.', 'ubicacion_id': 'ferrol', 'nombre': 'Ferrol', 'tipo_info': 'contacto'}]
+2026-02-03 16:12:23,736 | INFO | INFORMACION | Candidato seleccionado: ferrol
+2026-02-03 16:12:23,737 | INFO | INFORMACION | Obteniendo información de ubicación: ferrol
+2026-02-03 16:12:23,737 | INFO | INFORMACION | Candidato/ informacion seleccionada: ferrol
+2026-02-03 16:12:23,737 | INFO | INFORMACION | Obteniendo información de ubicación: ferrol
+2026-02-03 16:12:26,897 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:22:00,818 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 16:22:00,818 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 16:22:00,818 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 16:22:02,203 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:22:02,220 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 16:22:02,220 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 16:22:02,220 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 16:22:02,220 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 16:22:02,220 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 16:22:02,220 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 16:22:02,220 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 16:22:02,779 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 16:22:02,785 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 16:22:02,786 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 16:22:16,072 | INFO | API | Mensaje recibido: o deshumdecedores
+2026-02-03 16:22:16,073 | INFO | AGENT | Procesando mensaje: o deshumdecedores
+2026-02-03 16:22:16,073 | INFO | LLM | Interpretando mensaje: o deshumdecedores
+2026-02-03 16:22:17,145 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 16:22:17,152 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumidificadores', 'marca': 'HTW'}}
+2026-02-03 16:22:17,152 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 16:22:17,153 | INFO | AGENT | [STOCK] Producto: deshumidificadores
+2026-02-03 16:22:17,153 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 16:22:17,153 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 16:22:17,153 | INFO | AGENT | [STOCK] Ubicación: Ferrol
+2026-02-03 16:22:17,153 | INFO | FAISS | FAISS → index=stock, texto='deshumidificadores HTW', top_k=9
+2026-02-03 16:22:18,325 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 16:22:18,330 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 16:22:18,330 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 18:32:33,434 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 18:32:33,449 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'producto', 'out_of_scope', 'stock', 'informacion'}
+2026-02-03 18:32:33,450 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 18:32:38,172 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 18:32:39,711 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 18:32:44,386 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 18:33:59,209 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 18:33:59,209 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 18:33:59,210 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 18:34:01,829 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:34:01,846 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 18:34:01,847 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 18:34:01,847 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 18:34:01,848 | INFO | AGENT | Tipo info: horario
+2026-02-03 18:34:01,848 | INFO | AGENT | Scope: single
+2026-02-03 18:34:01,849 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 18:34:01,849 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 18:34:01,849 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 18:34:01,851 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 18:34:02,965 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:34:02,989 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 18:34:02,989 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 18:34:02,989 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 18:34:02,990 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 18:34:02,992 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 18:34:02,993 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 18:34:05,783 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:34:20,421 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 18:34:20,421 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:34:20,421 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:34:22,287 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:34:22,299 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 18:34:22,299 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 18:34:22,299 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 18:34:22,300 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 18:34:22,300 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 18:34:22,300 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 18:34:22,300 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 18:34:22,301 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 18:34:22,301 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 18:34:23,133 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:34:23,138 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 18:34:23,138 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 18:34:23,138 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 18:46:13,390 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 18:46:13,392 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'producto', 'stock', 'out_of_scope', 'informacion'}
+2026-02-03 18:46:13,392 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 18:46:14,424 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 18:46:14,467 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 18:46:14,645 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 18:46:27,940 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 18:46:27,940 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:46:27,940 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:46:30,405 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:46:30,433 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 18:46:30,433 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 18:46:30,434 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 18:46:30,434 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 18:46:30,434 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 18:46:30,435 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 18:46:30,435 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 18:46:30,435 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 18:46:30,435 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 18:46:30,988 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:46:30,994 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 18:46:30,994 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 18:46:30,994 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 18:47:41,165 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 18:47:41,167 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'out_of_scope', 'producto', 'informacion'}
+2026-02-03 18:47:41,168 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 18:47:42,395 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 18:47:42,426 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 18:47:42,515 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 18:47:59,227 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 18:47:59,227 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 18:47:59,227 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 18:48:00,995 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:48:01,010 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 18:48:01,010 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 18:48:01,010 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 18:48:01,011 | INFO | AGENT | Tipo info: horario
+2026-02-03 18:48:01,011 | INFO | AGENT | Scope: single
+2026-02-03 18:48:01,011 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 18:48:01,011 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 18:48:01,011 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 18:48:01,011 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 18:48:01,265 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:48:01,274 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 18:48:01,274 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 18:48:01,274 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 18:48:01,275 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 18:48:01,275 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 18:48:01,277 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 18:48:02,877 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:48:13,597 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 18:48:13,597 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:48:13,597 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 18:48:15,667 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:48:15,671 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 18:48:15,673 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 18:48:15,673 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 18:48:15,673 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 18:48:15,673 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 18:48:15,676 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 18:48:15,676 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 18:48:15,676 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 18:48:15,676 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 18:48:15,885 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:48:15,891 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 18:48:15,894 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 18:48:20,057 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:48:20,068 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 18:49:08,431 | INFO | API | Mensaje recibido: dame stock de termo eco lydos en todos
+2026-02-03 18:49:08,432 | INFO | AGENT | Procesando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 18:49:08,438 | INFO | LLM | Interpretando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 18:49:10,147 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:49:10,152 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {'producto': 'termo eco lydos'}}
+2026-02-03 18:49:10,152 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Producto: termo eco lydos
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Scope: all
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: termo eco lydos
+2026-02-03 18:49:10,153 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: termo eco lydos
+2026-02-03 18:49:10,153 | INFO | FAISS | FAISS → index=stock, texto='termo eco lydos HTW', top_k=9
+2026-02-03 18:49:10,774 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 18:49:10,779 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 18:49:10,779 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '39132', 'descripcion': 'CRONOTERMOSTATO AMBIENTE TYBOX 117+', 'producto': 'cronotermostato ambiente tybox 117+', 'grupo': 'Domotica', 'subgrupo': 'Termostatos y cronotermostatos', 'unidad': 'PZ', 'stock_total': 95, 'ubicaciones': {'almeiras': 17, 'santiago': 27, 'ferrol': 22, 'sandiego': 8, 'sanxenxo': 21}}, {'sku': '40613', 'descripcion': 'VENTOSA HORIZONTAL 60/100 SAUNIER PPs 4 T/ANALISIS', 'producto': 'ventosa horizontal 60/100 saunier pps 4 t/analisis', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/caldera y grupo termico', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 3, 'ferrol': 15, 'sandiego': 4, 'sanxenxo': 1}}, {'sku': '39136', 'descripcion': 'CRONOTERMOSTATO AMBIENTE DIGITAL SALUS RT510', 'producto': 'cronotermostato ambiente digital salus rt510', 'grupo': 'Domotica', 'subgrupo': 'Termostatos y cronotermostatos', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 2, 'santiago': 11, 'ferrol': 3, 'sandiego': 3, 'sanxenxo': 1}}, {'sku': '59908', 'descripcion': 'CONJUNTO DUCHA TERM. TELESC. BLAUTHERM PR. 945401 RP300', 'producto': 'conjunto ducha term. telesc. blautherm pr. 945401 rp300', 'grupo': 'Griferia', 'subgrupo': 'Griferia para lavabo, bide y baños', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 5, 'santiago': 2, 'ferrol': 2, 'sandiego': 3}}, {'sku': '59997', 'descripcion': 'CARTUCHO TERMOSTATICO RS BLAUTHERM 1701T', 'producto': 'cartucho termostatico rs blautherm 1701t', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 3, 'santiago': 5, 'ferrol': 3, 'sandiego': 5}}, {'sku': '92508E', 'descripcion': 'PLANTILLA CALDERA VAILLANT ecoTEC pure', 'producto': 'plantilla caldera vaillant ecotec pure', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/caldera y grupo termico', 'unidad': 'KI', 'stock_total': 14, 'ubicaciones': {'almeiras': 12, 'sandiego': 2}}, {'sku': '86213', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 40', 'producto': 'te igual ppr aquatherm green pipe 40', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'santiago': 19, 'ferrol': 4}}, {'sku': '86214', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 50', 'producto': 'te igual ppr aquatherm green pipe 50', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'santiago': 15, 'ferrol': 8}}, {'sku': '86212', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 32', 'producto': 'te igual ppr aquatherm green pipe 32', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 53, 'ubicaciones': {'santiago': 39, 'ferrol': 14}}]
+2026-02-03 18:49:15,281 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 18:49:15,287 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 19:14:28,910 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 19:14:28,912 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'informacion', 'producto', 'stock', 'out_of_scope'}
+2026-02-03 19:14:28,912 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 19:14:30,001 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 19:14:30,028 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 19:14:30,088 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 19:14:44,808 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 19:14:44,808 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 19:14:44,809 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 19:14:46,946 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:14:46,981 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 19:14:46,981 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 19:14:46,981 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 19:14:46,981 | INFO | AGENT | Tipo info: horario
+2026-02-03 19:14:46,981 | INFO | AGENT | Scope: single
+2026-02-03 19:14:46,982 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:14:46,983 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 19:14:46,984 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:14:46,984 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 19:14:47,620 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:14:47,624 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 19:14:47,624 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 19:14:47,624 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 19:14:47,625 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:14:47,625 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 19:14:47,626 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:14:49,473 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:14:57,969 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 19:14:57,969 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:14:57,970 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:14:59,360 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:14:59,365 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 19:14:59,366 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 19:14:59,366 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 19:14:59,366 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 19:15:00,014 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:15:00,019 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 19:15:00,019 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 19:15:00,019 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 19:55:06,342 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 19:55:06,343 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'informacion', 'producto', 'out_of_scope'}
+2026-02-03 19:55:06,344 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 19:55:07,551 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 19:55:07,584 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 19:55:07,731 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 19:55:30,185 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 19:55:30,185 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 19:55:30,186 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 19:55:32,430 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:55:32,448 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 19:55:32,449 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 19:55:32,450 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 19:55:32,450 | INFO | AGENT | Tipo info: horario
+2026-02-03 19:55:32,451 | INFO | AGENT | Scope: single
+2026-02-03 19:55:32,451 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:55:32,451 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 19:55:32,452 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:55:32,452 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 19:55:33,235 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:55:33,237 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 19:55:33,238 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 19:55:33,238 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 19:55:33,238 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:55:33,238 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 19:55:33,238 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:55:35,656 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:55:51,876 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 19:55:51,876 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:55:51,877 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:55:53,712 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:55:53,715 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 19:55:53,715 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 19:55:53,715 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 19:55:53,716 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 19:55:53,716 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 19:55:53,716 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 19:55:53,717 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 19:55:53,717 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 19:55:53,717 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 19:55:54,005 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:55:54,010 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 19:55:54,010 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 19:55:54,010 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 19:56:06,151 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 19:56:06,154 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'stock', 'informacion', 'out_of_scope', 'producto'}
+2026-02-03 19:56:06,154 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 19:56:07,251 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 19:56:07,280 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 19:56:07,345 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 19:56:31,363 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 19:56:31,363 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 19:56:31,364 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 19:56:34,173 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:56:34,189 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 19:56:34,189 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 19:56:34,189 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 19:56:34,190 | INFO | AGENT | Tipo info: horario
+2026-02-03 19:56:34,190 | INFO | AGENT | Scope: single
+2026-02-03 19:56:34,190 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:56:34,190 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 19:56:34,190 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 19:56:34,191 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 19:56:34,723 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:56:34,730 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 19:56:34,733 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 19:56:34,733 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 19:56:34,733 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:56:34,733 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 19:56:34,733 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 19:56:36,996 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:56:46,537 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 19:56:46,537 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:56:46,538 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 19:56:48,827 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 19:56:48,831 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 19:56:48,833 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 19:56:48,833 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 19:56:48,833 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 19:56:48,833 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 19:56:48,834 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 19:56:48,834 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 19:56:48,834 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 19:56:48,835 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 19:56:49,075 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 19:56:49,087 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 19:56:49,087 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 19:56:49,088 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 20:01:32,985 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-03 20:01:32,988 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'producto', 'stock', 'out_of_scope', 'informacion'}
+2026-02-03 20:01:32,988 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-03 20:01:34,108 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-03 20:01:34,145 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-03 20:01:34,254 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-03 20:01:46,541 | INFO | API | Mensaje recibido: dame el horario de santiago
+2026-02-03 20:01:46,541 | INFO | AGENT | Procesando mensaje: dame el horario de santiago
+2026-02-03 20:01:46,542 | INFO | LLM | Interpretando mensaje: dame el horario de santiago
+2026-02-03 20:01:48,068 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:01:48,080 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago', 'tipo_info': 'horario'}}
+2026-02-03 20:01:48,081 | INFO | AGENT | Dominio detectado: informacion
+2026-02-03 20:01:48,081 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-03 20:01:48,081 | INFO | AGENT | Tipo info: horario
+2026-02-03 20:01:48,082 | INFO | AGENT | Scope: single
+2026-02-03 20:01:48,082 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 20:01:48,082 | INFO | INFORMACION | Texto usuario: dame el horario de santiago
+2026-02-03 20:01:48,083 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-03 20:01:48,083 | INFO | FAISS | FAISS → index=informacion, texto='dame el horario de santiago', top_k=1
+2026-02-03 20:01:48,302 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 20:01:48,304 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-03 20:01:48,304 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-03 20:01:48,305 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-03 20:01:48,305 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 20:01:48,305 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-03 20:01:48,305 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-03 20:01:50,149 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:01:59,001 | INFO | API | Mensaje recibido: dame el stock de deshumificadores HTW
+2026-02-03 20:01:59,001 | INFO | AGENT | Procesando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 20:01:59,002 | INFO | LLM | Interpretando mensaje: dame el stock de deshumificadores HTW
+2026-02-03 20:02:00,296 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:02:00,301 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'deshumificadores', 'marca': 'HTW'}}
+2026-02-03 20:02:00,301 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 20:02:00,301 | INFO | AGENT | [STOCK] Producto: deshumificadores
+2026-02-03 20:02:00,302 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 20:02:00,302 | INFO | AGENT | [STOCK] Scope: single
+2026-02-03 20:02:00,302 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-03 20:02:00,303 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: deshumificadores
+2026-02-03 20:02:00,303 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: deshumificadores
+2026-02-03 20:02:00,304 | INFO | FAISS | FAISS → index=stock, texto='deshumificadores HTW', top_k=9
+2026-02-03 20:02:00,580 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 20:02:00,585 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 20:02:00,585 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '70500', 'descripcion': 'PURIFICADOR AIRE HTW CUBE UV 120 M3/H', 'producto': 'purificador aire htw cube uv 120 m3/h', 'grupo': 'Aire acondicionado y refrigeracion', 'subgrupo': 'Tratamiento del aire', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '44748', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1"DCHA', 'producto': 'tapon purgador automatico 1"dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 201, 'ubicaciones': {'almeiras': 28, 'santiago': 59, 'ferrol': 56, 'sandiego': 17, 'sanxenxo': 41}}, {'sku': '52969', 'descripcion': 'ATOMIZADOR HEMBRA 22 x 100 5,7 L/MIN', 'producto': 'atomizador hembra 22 x 100 5,7 l/min', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 31, 'ubicaciones': {'ferrol': 2, 'sandiego': 29}}, {'sku': '42688', 'descripcion': 'CALENTADOR HYDRONEXT 5600S ESTANCO WTD12-3 AME BUT.', 'producto': 'calentador hydronext 5600s estanco wtd12-3 ame but.', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 3, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 3}}, {'sku': '52961', 'descripcion': 'ATOMIZADOR HEMBRA 18 X 100', 'producto': 'atomizador hembra 18 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 37, 'ubicaciones': {'almeiras': 19, 'santiago': 4, 'ferrol': 6, 'sandiego': 8}}, {'sku': '53002', 'descripcion': 'ATOMIZADOR MACHO 20 X 100', 'producto': 'atomizador macho 20 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 5, 'santiago': 1, 'ferrol': 1, 'sandiego': 4}}, {'sku': '44750', 'descripcion': 'TAPON PURGADOR AUTOMATICO 1 1/4" DCHA', 'producto': 'tapon purgador automatico 1 1/4" dcha', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/Radiadores', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 2, 'sandiego': 4}}, {'sku': '52906', 'descripcion': 'ATOMIZADOR FLEXIBLE HEMBRA 22 X 100', 'producto': 'atomizador flexible hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 19, 'ubicaciones': {'almeiras': 8, 'santiago': 3, 'ferrol': 3, 'sandiego': 5}}, {'sku': '52965', 'descripcion': 'ATOMIZADOR HEMBRA 22 X 100', 'producto': 'atomizador hembra 22 x 100', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'BL', 'stock_total': 172, 'ubicaciones': {'almeiras': 54, 'santiago': 3, 'ferrol': 53, 'sandiego': 62}}]
+2026-02-03 20:02:03,556 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:02:03,562 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 20:02:22,960 | INFO | API | Mensaje recibido: dame stock de termo eco lydos en todos
+2026-02-03 20:02:22,961 | INFO | AGENT | Procesando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 20:02:22,961 | INFO | LLM | Interpretando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 20:02:24,252 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:02:24,256 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {'producto': 'termo eco lydos'}}
+2026-02-03 20:02:24,257 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Producto: termo eco lydos
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Marca: HTW
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Scope: all
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: termo eco lydos
+2026-02-03 20:02:24,257 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: termo eco lydos
+2026-02-03 20:02:24,257 | INFO | FAISS | FAISS → index=stock, texto='termo eco lydos HTW', top_k=9
+2026-02-03 20:02:24,578 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 20:02:24,583 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 20:02:24,583 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '39132', 'descripcion': 'CRONOTERMOSTATO AMBIENTE TYBOX 117+', 'producto': 'cronotermostato ambiente tybox 117+', 'grupo': 'Domotica', 'subgrupo': 'Termostatos y cronotermostatos', 'unidad': 'PZ', 'stock_total': 95, 'ubicaciones': {'almeiras': 17, 'santiago': 27, 'ferrol': 22, 'sandiego': 8, 'sanxenxo': 21}}, {'sku': '40613', 'descripcion': 'VENTOSA HORIZONTAL 60/100 SAUNIER PPs 4 T/ANALISIS', 'producto': 'ventosa horizontal 60/100 saunier pps 4 t/analisis', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/caldera y grupo termico', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 3, 'ferrol': 15, 'sandiego': 4, 'sanxenxo': 1}}, {'sku': '39136', 'descripcion': 'CRONOTERMOSTATO AMBIENTE DIGITAL SALUS RT510', 'producto': 'cronotermostato ambiente digital salus rt510', 'grupo': 'Domotica', 'subgrupo': 'Termostatos y cronotermostatos', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 2, 'santiago': 11, 'ferrol': 3, 'sandiego': 3, 'sanxenxo': 1}}, {'sku': '59908', 'descripcion': 'CONJUNTO DUCHA TERM. TELESC. BLAUTHERM PR. 945401 RP300', 'producto': 'conjunto ducha term. telesc. blautherm pr. 945401 rp300', 'grupo': 'Griferia', 'subgrupo': 'Griferia para lavabo, bide y baños', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 5, 'santiago': 2, 'ferrol': 2, 'sandiego': 3}}, {'sku': '59997', 'descripcion': 'CARTUCHO TERMOSTATICO RS BLAUTHERM 1701T', 'producto': 'cartucho termostatico rs blautherm 1701t', 'grupo': 'Griferia', 'subgrupo': 'Accesorios para griferia', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 3, 'santiago': 5, 'ferrol': 3, 'sandiego': 5}}, {'sku': '92508E', 'descripcion': 'PLANTILLA CALDERA VAILLANT ecoTEC pure', 'producto': 'plantilla caldera vaillant ecotec pure', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/caldera y grupo termico', 'unidad': 'KI', 'stock_total': 14, 'ubicaciones': {'almeiras': 12, 'sandiego': 2}}, {'sku': '86213', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 40', 'producto': 'te igual ppr aquatherm green pipe 40', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'santiago': 19, 'ferrol': 4}}, {'sku': '86214', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 50', 'producto': 'te igual ppr aquatherm green pipe 50', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'santiago': 15, 'ferrol': 8}}, {'sku': '86212', 'descripcion': 'TE IGUAL PPR AQUATHERM GREEN PIPE 32', 'producto': 'te igual ppr aquatherm green pipe 32', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Polipropileno', 'unidad': 'PZ', 'stock_total': 53, 'ubicaciones': {'santiago': 39, 'ferrol': 14}}]
+2026-02-03 20:02:29,192 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:02:29,197 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-03 20:03:03,419 | INFO | API | Mensaje recibido: que productos ariston tienes
+2026-02-03 20:03:03,419 | INFO | AGENT | Procesando mensaje: que productos ariston tienes
+2026-02-03 20:03:03,420 | INFO | LLM | Interpretando mensaje: que productos ariston tienes
+2026-02-03 20:03:04,667 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:03:04,671 | INFO | LLM | Resultado LLM normalizado: {'domain': 'producto', 'scope': 'all', 'slots': {'marca': 'Ariston'}}
+2026-02-03 20:03:04,671 | INFO | AGENT | Dominio detectado: producto
+2026-02-03 20:03:20,540 | INFO | API | Mensaje recibido: si
+2026-02-03 20:03:20,540 | INFO | AGENT | Procesando mensaje: si
+2026-02-03 20:03:20,540 | INFO | LLM | Interpretando mensaje: si
+2026-02-03 20:03:21,679 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:03:21,683 | INFO | LLM | Resultado LLM normalizado: {'domain': 'out_of_scope', 'scope': 'all', 'slots': {}}
+2026-02-03 20:03:21,683 | INFO | AGENT | Dominio detectado: out_of_scope
+2026-02-03 20:03:41,205 | INFO | API | Mensaje recibido: dame stock de termo eco lydos en todos
+2026-02-03 20:03:41,206 | INFO | AGENT | Procesando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 20:03:41,207 | INFO | LLM | Interpretando mensaje: dame stock de termo eco lydos en todos
+2026-02-03 20:03:42,689 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:03:42,694 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {'producto': 'termo eco lydos'}}
+2026-02-03 20:03:42,694 | INFO | AGENT | Dominio detectado: stock
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Producto: termo eco lydos
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Marca: Ariston
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Scope: all
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: termo eco lydos
+2026-02-03 20:03:42,695 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: termo eco lydos
+2026-02-03 20:03:42,696 | INFO | FAISS | FAISS → index=stock, texto='termo eco lydos Ariston', top_k=9
+2026-02-03 20:03:42,948 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-03 20:03:42,953 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-03 20:03:42,953 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '42191', 'descripcion': 'TERMO ELECTRICO  ARISTON VELIS 7 TECH DRY WIFI 80 ES EU', 'producto': 'termo electrico  ariston velis 7 tech dry wifi 80 es eu', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Termo Electrico', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 6, 'santiago': 1, 'ferrol': 2, 'sandiego': 1, 'sanxenxo': 2}}, {'sku': '42802', 'descripcion': 'CALENTADOR ARISTON ATMOSFERICO FAST R X 11 BUT', 'producto': 'calentador ariston atmosferico fast r x 11 but', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'santiago': 5, 'ferrol': 6, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '42224', 'descripcion': 'TERMO ELECTRICO  ARISTON VELIS 5 PRO 80 ES MULTI', 'producto': 'termo electrico  ariston velis 5 pro 80 es multi', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Termo Electrico', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 4, 'santiago': 2, 'ferrol': 2, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '40468', 'descripcion': 'VENTOSA COAXIAL CALDERA ARISTON PPS 60/100', 'producto': 'ventosa coaxial caldera ariston pps 60/100', 'grupo': 'Calefaccion', 'subgrupo': 'Accesorios p/caldera y grupo termico', 'unidad': 'KI', 'stock_total': 36, 'ubicaciones': {'almeiras': 17, 'santiago': 6, 'ferrol': 10, 'sandiego': 2, 'sanxenxo': 1}}, {'sku': '42815', 'descripcion': 'CALENTADOR ARISTON ESTANCO NEXT EVO X SFT 11 BUT', 'producto': 'calentador ariston estanco next evo x sft 11 but', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 7, 'santiago': 3, 'ferrol': 3, 'sandiego': 2}}, {'sku': '42828', 'descripcion': 'CALENTADOR APOLO ATMOSFERICO BAJO Nox 10 LT BUT', 'producto': 'calentador apolo atmosferico bajo nox 10 lt but', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 5, 'ferrol': 3, 'sandiego': 1, 'sanxenxo': 3}}, {'sku': '42228', 'descripcion': 'TERMO ELECTRICO  ARISTON VELIS 5 PRO 100 ES MULTI', 'producto': 'termo electrico  ariston velis 5 pro 100 es multi', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Termo Electrico', 'unidad': 'PZ', 'stock_total': 26, 'ubicaciones': {'almeiras': 14, 'santiago': 3, 'ferrol': 3, 'sandiego': 4, 'sanxenxo': 2}}, {'sku': '39132', 'descripcion': 'CRONOTERMOSTATO AMBIENTE TYBOX 117+', 'producto': 'cronotermostato ambiente tybox 117+', 'grupo': 'Domotica', 'subgrupo': 'Termostatos y cronotermostatos', 'unidad': 'PZ', 'stock_total': 95, 'ubicaciones': {'almeiras': 17, 'santiago': 27, 'ferrol': 22, 'sandiego': 8, 'sanxenxo': 21}}, {'sku': '40472', 'descripcion': 'CALDERA ARISTON CONDENSACION CARES S 24 EU', 'producto': 'caldera ariston condensacion cares s 24 eu', 'grupo': 'Calefaccion', 'subgrupo': 'Caldera Gas', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 3, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 3}}]
+2026-02-03 20:03:50,303 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 20:03:50,305 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-07 09:35:38,172 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-07 09:35:38,251 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'informacion', 'producto', 'out_of_scope', 'stock'}
+2026-02-07 09:35:38,252 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-07 09:35:42,131 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-07 09:35:43,449 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-07 09:35:46,852 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-07 09:36:24,100 | INFO | API | Mensaje recibido: dame horarios
+2026-02-07 09:36:24,101 | INFO | AGENT | Procesando mensaje: dame horarios
+2026-02-07 09:36:24,101 | INFO | LLM | Interpretando mensaje: dame horarios
+2026-02-07 09:36:25,966 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:36:25,978 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {}}
+2026-02-07 09:36:25,978 | INFO | AGENT | Dominio detectado: informacion
+2026-02-07 09:36:25,978 | INFO | AGENT | Slot ubicación recibido: None
+2026-02-07 09:36:25,978 | INFO | AGENT | Tipo info: None
+2026-02-07 09:36:25,979 | INFO | AGENT | Scope: single
+2026-02-07 09:36:41,035 | INFO | API | Mensaje recibido: santiago
+2026-02-07 09:36:41,035 | INFO | AGENT | Procesando mensaje: santiago
+2026-02-07 09:36:41,035 | INFO | LLM | Interpretando mensaje: santiago
+2026-02-07 09:36:42,316 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:36:42,322 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'santiago'}}
+2026-02-07 09:36:42,322 | INFO | AGENT | Dominio detectado: informacion
+2026-02-07 09:36:42,322 | INFO | AGENT | Slot ubicación recibido: santiago
+2026-02-07 09:36:42,323 | INFO | AGENT | Tipo info: None
+2026-02-07 09:36:42,323 | INFO | AGENT | Scope: single
+2026-02-07 09:36:42,324 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-07 09:36:42,326 | INFO | INFORMACION | Texto usuario: santiago
+2026-02-07 09:36:42,326 | INFO | INFORMACION | Obteniendo información de ubicación: santiago
+2026-02-07 09:36:42,334 | INFO | FAISS | FAISS → index=informacion, texto='santiago', top_k=1
+2026-02-07 09:36:44,304 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:36:44,307 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-07 09:36:44,307 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-07 09:36:44,307 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-07 09:36:44,307 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-07 09:36:44,307 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-07 09:36:44,307 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-07 09:36:46,054 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:37:37,501 | INFO | API | Mensaje recibido: tienes codos de 1/2
+2026-02-07 09:37:37,501 | INFO | AGENT | Procesando mensaje: tienes codos de 1/2
+2026-02-07 09:37:37,502 | INFO | LLM | Interpretando mensaje: tienes codos de 1/2
+2026-02-07 09:37:38,885 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:37:38,889 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'codos', 'marca': None}}
+2026-02-07 09:37:38,889 | INFO | AGENT | Dominio detectado: stock
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Producto: codos
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Marca: None
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Scope: single
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: codos
+2026-02-07 09:37:38,890 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: codos
+2026-02-07 09:37:38,890 | INFO | FAISS | FAISS → index=stock, texto='codos', top_k=9
+2026-02-07 09:37:40,798 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:37:40,803 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-07 09:37:40,803 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '01010', 'descripcion': 'CODO 90º CU H-H 5090 D.54', 'producto': 'codo 90º cu h-h 5090 d.54', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 14, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 2, 'sandiego': 1, 'sanxenxo': 8}}, {'sku': '01501', 'descripcion': 'CODO IGUAL FITTING COBRE 14', 'producto': 'codo igual fitting cobre 14', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 21, 'ubicaciones': {'almeiras': 3, 'santiago': 11, 'ferrol': 5, 'sandiego': 2}}, {'sku': '01001', 'descripcion': 'CODO 90º CU H-H 5090 D.12', 'producto': 'codo 90º cu h-h 5090 d.12', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 605, 'ubicaciones': {'almeiras': 130, 'santiago': 115, 'ferrol': 202, 'sandiego': 58, 'sanxenxo': 100}}, {'sku': '01004', 'descripcion': 'CODO 90º CU H-H 5090 D.16', 'producto': 'codo 90º cu h-h 5090 d.16', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 36, 'ubicaciones': {'almeiras': 11, 'santiago': 10, 'ferrol': 10, 'sandiego': 5}}, {'sku': '01002', 'descripcion': 'CODO 90º CU H-H 5090 D.14', 'producto': 'codo 90º cu h-h 5090 d.14', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 28, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 10, 'sandiego': 3, 'sanxenxo': 5}}, {'sku': '01005', 'descripcion': 'CODO 90º CU H-H 5090 D.18', 'producto': 'codo 90º cu h-h 5090 d.18', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 1481, 'ubicaciones': {'almeiras': 554, 'santiago': 98, 'ferrol': 273, 'sandiego': 20, 'sanxenxo': 536}}, {'sku': '01500', 'descripcion': 'CODO IGUAL FITTING COBRE 12', 'producto': 'codo igual fitting cobre 12', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 35, 'ubicaciones': {'almeiras': 6, 'santiago': 13, 'ferrol': 2, 'sandiego': 9, 'sanxenxo': 5}}, {'sku': '01006', 'descripcion': 'CODO 90º CU H-H 5090 D.22', 'producto': 'codo 90º cu h-h 5090 d.22', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 946, 'ubicaciones': {'almeiras': 215, 'santiago': 78, 'ferrol': 138, 'sandiego': 21, 'sanxenxo': 494}}, {'sku': '01000', 'descripcion': 'CODO 90º CU H-H 5090 D.10', 'producto': 'codo 90º cu h-h 5090 d.10', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 53, 'ubicaciones': {'almeiras': 14, 'santiago': 7, 'ferrol': 12, 'sandiego': 14, 'sanxenxo': 6}}]
+2026-02-07 09:37:42,376 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:37:42,380 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-07 09:38:16,513 | INFO | API | Mensaje recibido: y tienes bombas de mara johnson
+2026-02-07 09:38:16,513 | INFO | AGENT | Procesando mensaje: y tienes bombas de mara johnson
+2026-02-07 09:38:16,513 | INFO | LLM | Interpretando mensaje: y tienes bombas de mara johnson
+2026-02-07 09:38:17,391 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:38:17,396 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas', 'marca': 'Johnson'}}
+2026-02-07 09:38:17,396 | INFO | AGENT | Dominio detectado: stock
+2026-02-07 09:38:17,396 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-07 09:38:17,396 | INFO | AGENT | [STOCK] Marca: Johnson
+2026-02-07 09:38:17,396 | INFO | AGENT | [STOCK] Scope: single
+2026-02-07 09:38:17,396 | INFO | AGENT | [STOCK] Ubicación: santiago
+2026-02-07 09:38:17,397 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas
+2026-02-07 09:38:17,397 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas
+2026-02-07 09:38:17,397 | INFO | FAISS | FAISS → index=stock, texto='bombas Johnson', top_k=9
+2026-02-07 09:38:17,571 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:38:17,578 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-07 09:38:17,579 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '85106', 'descripcion': 'TUBO ASPIRACION/IMPULSION BOMBAS DOSIFICADORAS', 'producto': 'tubo aspiracion/impulsion bombas dosificadoras', 'grupo': 'Piscina', 'subgrupo': 'Recambios', 'unidad': 'MT', 'stock_total': 100, 'ubicaciones': {'sanxenxo': 100}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}]
+2026-02-07 09:38:19,601 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:38:19,605 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-07 09:38:55,038 | INFO | API | Mensaje recibido: dame el stock de todas las tiendas
+2026-02-07 09:38:55,039 | INFO | AGENT | Procesando mensaje: dame el stock de todas las tiendas
+2026-02-07 09:38:55,039 | INFO | LLM | Interpretando mensaje: dame el stock de todas las tiendas
+2026-02-07 09:38:56,313 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:38:56,318 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {}}
+2026-02-07 09:38:56,319 | INFO | AGENT | Dominio detectado: stock
+2026-02-07 09:38:56,320 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-07 09:38:56,320 | INFO | AGENT | [STOCK] Marca: Johnson
+2026-02-07 09:38:56,321 | INFO | AGENT | [STOCK] Scope: all
+2026-02-07 09:38:56,323 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-07 09:38:56,323 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas
+2026-02-07 09:38:56,324 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas
+2026-02-07 09:38:56,325 | INFO | FAISS | FAISS → index=stock, texto='bombas Johnson', top_k=9
+2026-02-07 09:38:56,472 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:38:56,477 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-07 09:38:56,478 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '85106', 'descripcion': 'TUBO ASPIRACION/IMPULSION BOMBAS DOSIFICADORAS', 'producto': 'tubo aspiracion/impulsion bombas dosificadoras', 'grupo': 'Piscina', 'subgrupo': 'Recambios', 'unidad': 'MT', 'stock_total': 100, 'ubicaciones': {'sanxenxo': 100}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}]
+2026-02-07 09:38:59,117 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:38:59,121 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-07 09:39:54,840 | INFO | API | Mensaje recibido: oye desgraciadillo que doy una ostia si no me respondes el stock de ferrol
+2026-02-07 09:39:54,840 | INFO | AGENT | Procesando mensaje: oye desgraciadillo que doy una ostia si no me respondes el stock de ferrol
+2026-02-07 09:39:54,840 | INFO | LLM | Interpretando mensaje: oye desgraciadillo que doy una ostia si no me respondes el stock de ferrol
+2026-02-07 09:39:55,689 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:39:55,691 | INFO | LLM | Resultado LLM normalizado: {'domain': 'out_of_scope', 'scope': 'single', 'slots': {}}
+2026-02-07 09:39:55,693 | INFO | AGENT | Dominio detectado: out_of_scope
+2026-02-07 09:40:06,589 | INFO | API | Mensaje recibido: te dije ferrol
+2026-02-07 09:40:06,590 | INFO | AGENT | Procesando mensaje: te dije ferrol
+2026-02-07 09:40:06,590 | INFO | LLM | Interpretando mensaje: te dije ferrol
+2026-02-07 09:40:07,483 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:40:07,490 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'ubicacion': 'Ferrol'}}
+2026-02-07 09:40:07,490 | INFO | AGENT | Dominio detectado: stock
+2026-02-07 09:40:07,490 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-07 09:40:07,490 | INFO | AGENT | [STOCK] Marca: Johnson
+2026-02-07 09:40:07,490 | INFO | AGENT | [STOCK] Scope: single
+2026-02-07 09:40:07,490 | INFO | AGENT | [STOCK] Ubicación: Ferrol
+2026-02-07 09:40:07,490 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas
+2026-02-07 09:40:07,491 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas
+2026-02-07 09:40:07,491 | INFO | FAISS | FAISS → index=stock, texto='bombas Johnson', top_k=9
+2026-02-07 09:40:07,651 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:40:07,663 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-07 09:40:07,666 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '85106', 'descripcion': 'TUBO ASPIRACION/IMPULSION BOMBAS DOSIFICADORAS', 'producto': 'tubo aspiracion/impulsion bombas dosificadoras', 'grupo': 'Piscina', 'subgrupo': 'Recambios', 'unidad': 'MT', 'stock_total': 100, 'ubicaciones': {'sanxenxo': 100}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}]
+2026-02-07 09:40:07,666 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-07 09:40:17,037 | INFO | API | Mensaje recibido: y en otras tinedas
+2026-02-07 09:40:17,037 | INFO | AGENT | Procesando mensaje: y en otras tinedas
+2026-02-07 09:40:17,037 | INFO | LLM | Interpretando mensaje: y en otras tinedas
+2026-02-07 09:40:17,876 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:40:17,877 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'all', 'slots': {}}
+2026-02-07 09:40:17,878 | INFO | AGENT | Dominio detectado: stock
+2026-02-07 09:40:17,878 | INFO | AGENT | [STOCK] Producto: bombas
+2026-02-07 09:40:17,879 | INFO | AGENT | [STOCK] Marca: Johnson
+2026-02-07 09:40:17,879 | INFO | AGENT | [STOCK] Scope: all
+2026-02-07 09:40:17,879 | INFO | AGENT | [STOCK] Ubicación: None
+2026-02-07 09:40:17,879 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas
+2026-02-07 09:40:17,879 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas
+2026-02-07 09:40:17,879 | INFO | FAISS | FAISS → index=stock, texto='bombas Johnson', top_k=9
+2026-02-07 09:40:18,005 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-07 09:40:18,012 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-07 09:40:18,013 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '85106', 'descripcion': 'TUBO ASPIRACION/IMPULSION BOMBAS DOSIFICADORAS', 'producto': 'tubo aspiracion/impulsion bombas dosificadoras', 'grupo': 'Piscina', 'subgrupo': 'Recambios', 'unidad': 'MT', 'stock_total': 100, 'ubicaciones': {'sanxenxo': 100}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '21051', 'descripcion': 'BOMBA ASPIRACION PROFUNDA DAB 1,5 CV DP-151M', 'producto': 'bomba aspiracion profunda dab 1,5 cv dp-151m', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba sumergible', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '94057E', 'descripcion': 'BOMBA WILO YONOS PARA RS 25/6 RKC 180 mm', 'producto': 'bomba wilo yonos para rs 25/6 rkc 180 mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 3, 'santiago': 13, 'ferrol': 2, 'sanxenxo': 2}}]
+2026-02-07 09:40:20,850 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-07 09:40:20,855 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-09 15:20:14,820 | INFO | DOMAIN_CONFIG | Cargando configuración de dominios desde: config/domain.yaml
+2026-02-09 15:20:14,829 | INFO | DOMAIN_CONFIG | Dominios válidos cargados: {'producto', 'stock', 'out_of_scope', 'informacion'}
+2026-02-09 15:20:14,830 | INFO | DOMAIN_CONFIG | Handlers registrados: {'stock': 'stock', 'producto': 'rag_producto', 'informacion': 'rag_info', 'out_of_scope': 'humano'}
+2026-02-09 15:20:17,038 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-02-09 15:20:17,205 | INFO | faiss.loader | Successfully loaded faiss with AVX512 support.
+2026-02-09 15:20:17,497 | INFO | FAISS | Índices FAISS cargados: ['stock', 'informacion']
+2026-02-09 15:21:07,498 | INFO | API | Mensaje recibido: horarios 
+2026-02-09 15:21:07,499 | INFO | AGENT | Procesando mensaje: horarios 
+2026-02-09 15:21:07,499 | INFO | LLM | Interpretando mensaje: horarios 
+2026-02-09 15:21:10,181 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:21:10,204 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {}}
+2026-02-09 15:21:10,204 | INFO | AGENT | Dominio detectado: informacion
+2026-02-09 15:21:10,205 | INFO | AGENT | Slot ubicación recibido: None
+2026-02-09 15:21:10,205 | INFO | AGENT | Tipo info: None
+2026-02-09 15:21:10,205 | INFO | AGENT | Scope: single
+2026-02-09 15:21:28,017 | INFO | API | Mensaje recibido: quiero de todos
+2026-02-09 15:21:28,017 | INFO | AGENT | Procesando mensaje: quiero de todos
+2026-02-09 15:21:28,017 | INFO | LLM | Interpretando mensaje: quiero de todos
+2026-02-09 15:21:29,418 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:21:29,424 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'all', 'slots': {}}
+2026-02-09 15:21:29,424 | INFO | AGENT | Dominio detectado: informacion
+2026-02-09 15:21:29,425 | INFO | AGENT | Slot ubicación recibido: None
+2026-02-09 15:21:29,425 | INFO | AGENT | Tipo info: None
+2026-02-09 15:21:29,425 | INFO | AGENT | Scope: all
+2026-02-09 15:21:30,419 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:21:32,260 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:21:34,302 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:00,316 | INFO | API | Mensaje recibido: quiero la direccion de santiago
+2026-02-09 15:22:00,316 | INFO | AGENT | Procesando mensaje: quiero la direccion de santiago
+2026-02-09 15:22:00,317 | INFO | LLM | Interpretando mensaje: quiero la direccion de santiago
+2026-02-09 15:22:01,369 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:01,381 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'Santiago', 'tipo_info': 'dirección'}}
+2026-02-09 15:22:01,381 | INFO | AGENT | Dominio detectado: informacion
+2026-02-09 15:22:01,382 | INFO | AGENT | Slot ubicación recibido: Santiago
+2026-02-09 15:22:01,382 | INFO | AGENT | Tipo info: dirección
+2026-02-09 15:22:01,382 | INFO | AGENT | Scope: single
+2026-02-09 15:22:01,383 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:22:01,384 | INFO | INFORMACION | Texto usuario: quiero la direccion de santiago
+2026-02-09 15:22:01,384 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:22:01,385 | INFO | FAISS | FAISS → index=informacion, texto='quiero la direccion de santiago', top_k=1
+2026-02-09 15:22:03,457 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:22:03,469 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-09 15:22:03,471 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Datos de contacto de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'contacto'}]
+2026-02-09 15:22:03,471 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-09 15:22:03,472 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-09 15:22:03,473 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-09 15:22:03,474 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-09 15:22:05,389 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:25,002 | INFO | API | Mensaje recibido: dame el stock de bombas de agua 
+2026-02-09 15:22:25,003 | INFO | AGENT | Procesando mensaje: dame el stock de bombas de agua 
+2026-02-09 15:22:25,003 | INFO | LLM | Interpretando mensaje: dame el stock de bombas de agua 
+2026-02-09 15:22:26,375 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:26,380 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas de agua'}}
+2026-02-09 15:22:26,380 | INFO | AGENT | Dominio detectado: stock
+2026-02-09 15:22:26,380 | INFO | AGENT | [STOCK] Producto: bombas de agua
+2026-02-09 15:22:26,381 | INFO | AGENT | [STOCK] Marca: None
+2026-02-09 15:22:26,381 | INFO | AGENT | [STOCK] Scope: single
+2026-02-09 15:22:26,381 | INFO | AGENT | [STOCK] Ubicación: Santiago
+2026-02-09 15:22:26,382 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas de agua
+2026-02-09 15:22:26,382 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas de agua
+2026-02-09 15:22:26,383 | INFO | FAISS | FAISS → index=stock, texto='bombas de agua', top_k=9
+2026-02-09 15:22:26,503 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:22:26,508 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-09 15:22:26,509 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '85106', 'descripcion': 'TUBO ASPIRACION/IMPULSION BOMBAS DOSIFICADORAS', 'producto': 'tubo aspiracion/impulsion bombas dosificadoras', 'grupo': 'Piscina', 'subgrupo': 'Recambios', 'unidad': 'MT', 'stock_total': 100, 'ubicaciones': {'sanxenxo': 100}}, {'sku': '41319', 'descripcion': 'BOMBA CIRCULADORA GUT 32/80  2" 180MM', 'producto': 'bomba circuladora gut 32/80  2" 180mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 23, 'ubicaciones': {'almeiras': 11, 'santiago': 2, 'ferrol': 10}}, {'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '41316', 'descripcion': 'BOMBA SLR-25/6 180 MM 230V', 'producto': 'bomba slr-25/6 180 mm 230v', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 33, 'ubicaciones': {'almeiras': 7, 'santiago': 9, 'ferrol': 9, 'sandiego': 4, 'sanxenxo': 4}}, {'sku': '41317', 'descripcion': 'BOMBA SLR-25/6 130 MM 230V', 'producto': 'bomba slr-25/6 130 mm 230v', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 2, 'santiago': 2, 'ferrol': 4, 'sandiego': 2, 'sanxenxo': 2}}, {'sku': '0373201059', 'descripcion': 'BOMBA GRUNDFOS MAGNA1/32-100 fundido', 'producto': 'bomba grundfos magna1/32-100 fundido', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 13, 'ferrol': 1, 'sandiego': 1}}, {'sku': '41297', 'descripcion': 'JUEGO RACORD AMPLIACION BOMBAS 2" X 1 1/2"', 'producto': 'juego racord ampliacion bombas 2" x 1 1/2"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'PZ', 'stock_total': 38, 'ubicaciones': {'almeiras': 6, 'santiago': 12, 'ferrol': 10, 'sandiego': 5, 'sanxenxo': 5}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}, {'sku': '41295', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 1 1/2" X 1"', 'producto': 'juego racord bombas calefaccion 1 1/2" x 1"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 106, 'ubicaciones': {'almeiras': 71, 'santiago': 5, 'ferrol': 11, 'sandiego': 2, 'sanxenxo': 17}}]
+2026-02-09 15:22:26,509 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-09 15:22:34,309 | INFO | API | Mensaje recibido: dame el stock de calderas
+2026-02-09 15:22:34,310 | INFO | AGENT | Procesando mensaje: dame el stock de calderas
+2026-02-09 15:22:34,311 | INFO | LLM | Interpretando mensaje: dame el stock de calderas
+2026-02-09 15:22:35,467 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:35,478 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'calderas'}}
+2026-02-09 15:22:35,478 | INFO | AGENT | Dominio detectado: stock
+2026-02-09 15:22:35,478 | INFO | AGENT | [STOCK] Producto: calderas
+2026-02-09 15:22:35,478 | INFO | AGENT | [STOCK] Marca: None
+2026-02-09 15:22:35,478 | INFO | AGENT | [STOCK] Scope: single
+2026-02-09 15:22:35,478 | INFO | AGENT | [STOCK] Ubicación: Santiago
+2026-02-09 15:22:35,478 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: calderas
+2026-02-09 15:22:35,479 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: calderas
+2026-02-09 15:22:35,479 | INFO | FAISS | FAISS → index=stock, texto='calderas', top_k=9
+2026-02-09 15:22:35,631 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:22:35,637 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-09 15:22:35,638 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '50102', 'descripcion': 'CONJUNTO TOMA DE MUESTRAS CALDERAS ESTANCAS', 'producto': 'conjunto toma de muestras calderas estancas', 'grupo': 'Colectores y contadores agua/gas', 'subgrupo': 'Varios', 'unidad': 'un', 'stock_total': 36, 'ubicaciones': {'almeiras': 18, 'santiago': 4, 'ferrol': 5, 'sandiego': 4, 'sanxenxo': 5}}, {'sku': 'LOTE4', 'descripcion': 'SURTIDO NAVIDEÑO Nº 4 CALDERAS', 'producto': 'surtido navideño nº 4 calderas', 'grupo': 'Grupo genérico', 'subgrupo': 'Grupo Generico', 'unidad': 'PZ', 'stock_total': 26, 'ubicaciones': {'almeiras': 13, 'santiago': 5, 'ferrol': 8}}, {'sku': '41479', 'descripcion': 'CARTUCHO DESHOLLINADOR CALDERAS BIOMASA BIOMASS', 'producto': 'cartucho deshollinador calderas biomasa biomass', 'grupo': 'Calefaccion', 'subgrupo': 'Varios', 'unidad': 'un', 'stock_total': 53, 'ubicaciones': {'almeiras': 8, 'ferrol': 45}}, {'sku': '94196', 'descripcion': 'CALDERA MURAL BLUEHELIX ALPHA 28C+KITGASESEST', 'producto': 'caldera mural bluehelix alpha 28c+kitgasesest', 'grupo': 'Calefaccion', 'subgrupo': 'Caldera Gas', 'unidad': 'PZ', 'stock_total': 21, 'ubicaciones': {'almeiras': 13, 'santiago': 1, 'ferrol': 1, 'sandiego': 2, 'sanxenxo': 4}}, {'sku': '41477', 'descripcion': 'CARTUCHO DESHOLLINADOR CALDERAS FREE FLOW FF350', 'producto': 'cartucho deshollinador calderas free flow ff350', 'grupo': 'Calefaccion', 'subgrupo': 'Varios', 'unidad': 'un', 'stock_total': 17, 'ubicaciones': {'almeiras': 6, 'ferrol': 3, 'sandiego': 2, 'sanxenxo': 6}}, {'sku': '41478', 'descripcion': 'CARTUCHO DESHOLLINADOR CALDERAS FREE FLOW FF500', 'producto': 'cartucho deshollinador calderas free flow ff500', 'grupo': 'Calefaccion', 'subgrupo': 'Varios', 'unidad': 'un', 'stock_total': 60, 'ubicaciones': {'ferrol': 60}}, {'sku': '41475', 'descripcion': 'CARTUCHO DESHOLLINADOR CALDERAS FREE FLOW FF170', 'producto': 'cartucho deshollinador calderas free flow ff170', 'grupo': 'Calefaccion', 'subgrupo': 'Varios', 'unidad': 'un', 'stock_total': 18, 'ubicaciones': {'santiago': 6, 'ferrol': 12}}, {'sku': '40453', 'descripcion': 'DOCUMENTACION CALDERA VITODENS', 'producto': 'documentacion caldera vitodens', 'grupo': 'Calefaccion', 'subgrupo': 'Varios', 'unidad': 'PZ', 'stock_total': 50, 'ubicaciones': {'almeiras': 25, 'ferrol': 24, 'sandiego': 1}}, {'sku': '40290', 'descripcion': 'CALDERA CONDENSACION PUMA 18/24 KW (H-ES)', 'producto': 'caldera condensacion puma 18/24 kw (h-es)', 'grupo': 'Calefaccion', 'subgrupo': 'Caldera Gas', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 9, 'ferrol': 2, 'sandiego': 1}}]
+2026-02-09 15:22:35,638 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-09 15:22:39,277 | INFO | API | Mensaje recibido: de codos
+2026-02-09 15:22:39,277 | INFO | AGENT | Procesando mensaje: de codos
+2026-02-09 15:22:39,277 | INFO | LLM | Interpretando mensaje: de codos
+2026-02-09 15:22:40,165 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:22:40,171 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'codos'}}
+2026-02-09 15:22:40,172 | INFO | AGENT | Dominio detectado: stock
+2026-02-09 15:22:40,173 | INFO | AGENT | [STOCK] Producto: codos
+2026-02-09 15:22:40,176 | INFO | AGENT | [STOCK] Marca: None
+2026-02-09 15:22:40,176 | INFO | AGENT | [STOCK] Scope: single
+2026-02-09 15:22:40,177 | INFO | AGENT | [STOCK] Ubicación: Santiago
+2026-02-09 15:22:40,177 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: codos
+2026-02-09 15:22:40,178 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: codos
+2026-02-09 15:22:40,178 | INFO | FAISS | FAISS → index=stock, texto='codos', top_k=9
+2026-02-09 15:22:40,641 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:22:40,648 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-09 15:22:40,649 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '01010', 'descripcion': 'CODO 90º CU H-H 5090 D.54', 'producto': 'codo 90º cu h-h 5090 d.54', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 14, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 2, 'sandiego': 1, 'sanxenxo': 8}}, {'sku': '01501', 'descripcion': 'CODO IGUAL FITTING COBRE 14', 'producto': 'codo igual fitting cobre 14', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 21, 'ubicaciones': {'almeiras': 3, 'santiago': 11, 'ferrol': 5, 'sandiego': 2}}, {'sku': '01001', 'descripcion': 'CODO 90º CU H-H 5090 D.12', 'producto': 'codo 90º cu h-h 5090 d.12', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 605, 'ubicaciones': {'almeiras': 130, 'santiago': 115, 'ferrol': 202, 'sandiego': 58, 'sanxenxo': 100}}, {'sku': '01004', 'descripcion': 'CODO 90º CU H-H 5090 D.16', 'producto': 'codo 90º cu h-h 5090 d.16', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 36, 'ubicaciones': {'almeiras': 11, 'santiago': 10, 'ferrol': 10, 'sandiego': 5}}, {'sku': '01002', 'descripcion': 'CODO 90º CU H-H 5090 D.14', 'producto': 'codo 90º cu h-h 5090 d.14', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 28, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 10, 'sandiego': 3, 'sanxenxo': 5}}, {'sku': '01005', 'descripcion': 'CODO 90º CU H-H 5090 D.18', 'producto': 'codo 90º cu h-h 5090 d.18', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 1481, 'ubicaciones': {'almeiras': 554, 'santiago': 98, 'ferrol': 273, 'sandiego': 20, 'sanxenxo': 536}}, {'sku': '01500', 'descripcion': 'CODO IGUAL FITTING COBRE 12', 'producto': 'codo igual fitting cobre 12', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 35, 'ubicaciones': {'almeiras': 6, 'santiago': 13, 'ferrol': 2, 'sandiego': 9, 'sanxenxo': 5}}, {'sku': '01006', 'descripcion': 'CODO 90º CU H-H 5090 D.22', 'producto': 'codo 90º cu h-h 5090 d.22', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 946, 'ubicaciones': {'almeiras': 215, 'santiago': 78, 'ferrol': 138, 'sandiego': 21, 'sanxenxo': 494}}, {'sku': '01000', 'descripcion': 'CODO 90º CU H-H 5090 D.10', 'producto': 'codo 90º cu h-h 5090 d.10', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 53, 'ubicaciones': {'almeiras': 14, 'santiago': 7, 'ferrol': 12, 'sandiego': 14, 'sanxenxo': 6}}]
+2026-02-09 15:22:40,649 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-09 15:22:59,124 | INFO | API | Mensaje recibido: horario de atnecion
+2026-02-09 15:22:59,125 | INFO | AGENT | Procesando mensaje: horario de atnecion
+2026-02-09 15:22:59,125 | INFO | LLM | Interpretando mensaje: horario de atnecion
+2026-02-09 15:23:00,035 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:23:00,039 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {}}
+2026-02-09 15:23:00,039 | INFO | AGENT | Dominio detectado: informacion
+2026-02-09 15:23:00,040 | INFO | AGENT | Slot ubicación recibido: Santiago
+2026-02-09 15:23:00,040 | INFO | AGENT | Tipo info: None
+2026-02-09 15:23:00,040 | INFO | AGENT | Scope: single
+2026-02-09 15:23:00,042 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:23:00,043 | INFO | INFORMACION | Texto usuario: horario de atnecion
+2026-02-09 15:23:00,043 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:23:00,043 | INFO | FAISS | FAISS → index=informacion, texto='horario de atnecion', top_k=1
+2026-02-09 15:23:02,304 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:23:02,307 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-09 15:23:02,308 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Contacto General.', 'ubicacion_id': 'contacto_general', 'nombre': 'Contacto General', 'tipo_info': 'horario'}]
+2026-02-09 15:23:02,308 | INFO | INFORMACION | Candidato seleccionado: contacto_general
+2026-02-09 15:23:02,308 | INFO | INFORMACION | Obteniendo información de ubicación: contacto_general
+2026-02-09 15:23:02,308 | INFO | INFORMACION | Candidato/ informacion seleccionada: contacto_general
+2026-02-09 15:23:02,308 | INFO | INFORMACION | Obteniendo información de ubicación: contacto_general
+2026-02-09 15:23:03,961 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:23:25,407 | INFO | API | Mensaje recibido: quiero de santiago
+2026-02-09 15:23:25,410 | INFO | AGENT | Procesando mensaje: quiero de santiago
+2026-02-09 15:23:25,412 | INFO | LLM | Interpretando mensaje: quiero de santiago
+2026-02-09 15:23:26,523 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:23:26,526 | INFO | LLM | Resultado LLM normalizado: {'domain': 'informacion', 'scope': 'single', 'slots': {'ubicacion': 'Santiago'}}
+2026-02-09 15:23:26,527 | INFO | AGENT | Dominio detectado: informacion
+2026-02-09 15:23:26,528 | INFO | AGENT | Slot ubicación recibido: Santiago
+2026-02-09 15:23:26,528 | INFO | AGENT | Tipo info: None
+2026-02-09 15:23:26,528 | INFO | AGENT | Scope: single
+2026-02-09 15:23:26,528 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:23:26,528 | INFO | INFORMACION | Texto usuario: quiero de santiago
+2026-02-09 15:23:26,528 | INFO | INFORMACION | Obteniendo información de ubicación: Santiago
+2026-02-09 15:23:26,528 | INFO | FAISS | FAISS → index=informacion, texto='quiero de santiago', top_k=1
+2026-02-09 15:23:26,675 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:23:26,677 | INFO | FAISS | FAISS → resultados devueltos (informacion): 1
+2026-02-09 15:23:26,677 | INFO | INFORMACION | Resultados Probables: [{'texto': 'Horario de atención de la delegación de Santiago de Compostela.', 'ubicacion_id': 'santiago de compostela', 'nombre': 'Santiago de Compostela', 'tipo_info': 'horario'}]
+2026-02-09 15:23:26,677 | INFO | INFORMACION | Candidato seleccionado: santiago de compostela
+2026-02-09 15:23:26,678 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-09 15:23:26,678 | INFO | INFORMACION | Candidato/ informacion seleccionada: santiago de compostela
+2026-02-09 15:23:26,679 | INFO | INFORMACION | Obteniendo información de ubicación: santiago de compostela
+2026-02-09 15:23:28,048 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:23:36,801 | INFO | API | Mensaje recibido: tienes stock de bombas de calor?
+2026-02-09 15:23:36,802 | INFO | AGENT | Procesando mensaje: tienes stock de bombas de calor?
+2026-02-09 15:23:36,802 | INFO | LLM | Interpretando mensaje: tienes stock de bombas de calor?
+2026-02-09 15:23:37,837 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:23:37,842 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'bombas de calor'}}
+2026-02-09 15:23:37,842 | INFO | AGENT | Dominio detectado: stock
+2026-02-09 15:23:37,843 | INFO | AGENT | [STOCK] Producto: bombas de calor
+2026-02-09 15:23:37,843 | INFO | AGENT | [STOCK] Marca: None
+2026-02-09 15:23:37,843 | INFO | AGENT | [STOCK] Scope: single
+2026-02-09 15:23:37,844 | INFO | AGENT | [STOCK] Ubicación: Santiago
+2026-02-09 15:23:37,844 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: bombas de calor
+2026-02-09 15:23:37,844 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: bombas de calor
+2026-02-09 15:23:37,844 | INFO | FAISS | FAISS → index=stock, texto='bombas de calor', top_k=9
+2026-02-09 15:23:38,105 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:23:38,111 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-09 15:23:38,112 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '60613', 'descripcion': 'BOMBA DE CALOR HYDRO ALL IN ONE HAIER R290 10 KW', 'producto': 'bomba de calor hydro all in one haier r290 10 kw', 'grupo': 'Energia aerotermica', 'subgrupo': 'Bomba de Calor', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 4, 'santiago': 5, 'ferrol': 1, 'sanxenxo': 1}}, {'sku': '41322', 'descripcion': 'BOMBA CALEFACCION ELECTRONICA EVOSTA2 40-70/180', 'producto': 'bomba calefaccion electronica evosta2 40-70/180', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 2, 'santiago': 2, 'ferrol': 5, 'sandiego': 2, 'sanxenxo': 1}}, {'sku': '41345', 'descripcion': 'BOMBA FERCO ACS ALTA EFICIENCIA RS12/1.2EM 65mm', 'producto': 'bomba ferco acs alta eficiencia rs12/1.2em 65mm', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'un', 'stock_total': 11, 'ubicaciones': {'almeiras': 2, 'santiago': 9}}, {'sku': '42828', 'descripcion': 'CALENTADOR APOLO ATMOSFERICO BAJO Nox 10 LT BUT', 'producto': 'calentador apolo atmosferico bajo nox 10 lt but', 'grupo': 'Termos, calentadores y acumuladores', 'subgrupo': 'Calentador ACS gas', 'unidad': 'PZ', 'stock_total': 16, 'ubicaciones': {'almeiras': 4, 'santiago': 5, 'ferrol': 3, 'sandiego': 1, 'sanxenxo': 3}}, {'sku': 'LOTE2', 'descripcion': 'SURTIDO NAVIDEÑO Nº 2 CALENTADORES', 'producto': 'surtido navideño nº 2 calentadores', 'grupo': 'Grupo genérico', 'subgrupo': 'Grupo Generico', 'unidad': 'PZ', 'stock_total': 11, 'ubicaciones': {'almeiras': 6, 'ferrol': 5}}, {'sku': '0373201059', 'descripcion': 'BOMBA GRUNDFOS MAGNA1/32-100 fundido', 'producto': 'bomba grundfos magna1/32-100 fundido', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 15, 'ubicaciones': {'almeiras': 13, 'ferrol': 1, 'sandiego': 1}}, {'sku': '0373200977', 'descripcion': 'BOMBA GRUNDFOS  MAGNA1/25-80 fundido', 'producto': 'bomba grundfos  magna1/25-80 fundido', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 20, 'ubicaciones': {'almeiras': 17, 'santiago': 1, 'ferrol': 1, 'sandiego': 1}}, {'sku': '41334', 'descripcion': 'BOMBA PRS 20/12-200 230V BCN', 'producto': 'bomba prs 20/12-200 230v bcn', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Bomba circuladora', 'unidad': 'PZ', 'stock_total': 12, 'ubicaciones': {'almeiras': 7, 'santiago': 1, 'ferrol': 2, 'sandiego': 2}}, {'sku': '41296', 'descripcion': 'JUEGO RACORD BOMBAS CALEFACCION 2" X 1 1/4"', 'producto': 'juego racord bombas calefaccion 2" x 1 1/4"', 'grupo': 'Bombas, grupos de presion y depuradoras', 'subgrupo': 'Accesorios', 'unidad': 'un', 'stock_total': 49, 'ubicaciones': {'almeiras': 10, 'santiago': 4, 'ferrol': 12, 'sandiego': 6, 'sanxenxo': 17}}]
+2026-02-09 15:23:38,113 | INFO | AGENT | Respuesta STOCK generada correctamente
+2026-02-09 15:24:53,687 | INFO | API | Mensaje recibido: oye bestia si en tu log hay registros porque no lo muestras
+2026-02-09 15:24:53,688 | INFO | AGENT | Procesando mensaje: oye bestia si en tu log hay registros porque no lo muestras
+2026-02-09 15:24:53,689 | INFO | LLM | Interpretando mensaje: oye bestia si en tu log hay registros porque no lo muestras
+2026-02-09 15:24:54,846 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:24:54,853 | INFO | LLM | Resultado LLM normalizado: {'domain': 'out_of_scope', 'scope': 'single', 'slots': {}}
+2026-02-09 15:24:54,853 | INFO | AGENT | Dominio detectado: out_of_scope
+2026-02-09 15:36:23,650 | INFO | API | Mensaje recibido: stock de codos
+2026-02-09 15:36:23,651 | INFO | AGENT | Procesando mensaje: stock de codos
+2026-02-09 15:36:23,651 | INFO | LLM | Interpretando mensaje: stock de codos
+2026-02-09 15:36:24,775 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-09 15:36:24,782 | INFO | LLM | Resultado LLM normalizado: {'domain': 'stock', 'scope': 'single', 'slots': {'producto': 'codos'}}
+2026-02-09 15:36:24,783 | INFO | AGENT | Dominio detectado: stock
+2026-02-09 15:36:24,783 | INFO | AGENT | [STOCK] Producto: codos
+2026-02-09 15:36:24,784 | INFO | AGENT | [STOCK] Marca: None
+2026-02-09 15:36:24,784 | INFO | AGENT | [STOCK] Scope: single
+2026-02-09 15:36:24,785 | INFO | AGENT | [STOCK] Ubicación: Santiago
+2026-02-09 15:36:24,785 | INFO | AGENT | [STOCK] Formando texto para buscar en el vector el producto: codos
+2026-02-09 15:36:24,785 | INFO | AGENT | [STOCK] Proceso de busqueda vectorial: codos
+2026-02-09 15:36:24,786 | INFO | FAISS | FAISS → index=stock, texto='codos', top_k=9
+2026-02-09 15:36:25,398 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2026-02-09 15:36:25,405 | INFO | FAISS | FAISS → resultados devueltos (stock): 9
+2026-02-09 15:36:25,408 | INFO | AGENT | [STOCK] Resultado de busqueda: [{'sku': '01010', 'descripcion': 'CODO 90º CU H-H 5090 D.54', 'producto': 'codo 90º cu h-h 5090 d.54', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 14, 'ubicaciones': {'almeiras': 1, 'santiago': 2, 'ferrol': 2, 'sandiego': 1, 'sanxenxo': 8}}, {'sku': '01501', 'descripcion': 'CODO IGUAL FITTING COBRE 14', 'producto': 'codo igual fitting cobre 14', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 21, 'ubicaciones': {'almeiras': 3, 'santiago': 11, 'ferrol': 5, 'sandiego': 2}}, {'sku': '01001', 'descripcion': 'CODO 90º CU H-H 5090 D.12', 'producto': 'codo 90º cu h-h 5090 d.12', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 605, 'ubicaciones': {'almeiras': 130, 'santiago': 115, 'ferrol': 202, 'sandiego': 58, 'sanxenxo': 100}}, {'sku': '01004', 'descripcion': 'CODO 90º CU H-H 5090 D.16', 'producto': 'codo 90º cu h-h 5090 d.16', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 36, 'ubicaciones': {'almeiras': 11, 'santiago': 10, 'ferrol': 10, 'sandiego': 5}}, {'sku': '01002', 'descripcion': 'CODO 90º CU H-H 5090 D.14', 'producto': 'codo 90º cu h-h 5090 d.14', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 28, 'ubicaciones': {'almeiras': 5, 'santiago': 5, 'ferrol': 10, 'sandiego': 3, 'sanxenxo': 5}}, {'sku': '01005', 'descripcion': 'CODO 90º CU H-H 5090 D.18', 'producto': 'codo 90º cu h-h 5090 d.18', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 1481, 'ubicaciones': {'almeiras': 554, 'santiago': 98, 'ferrol': 273, 'sandiego': 20, 'sanxenxo': 536}}, {'sku': '01500', 'descripcion': 'CODO IGUAL FITTING COBRE 12', 'producto': 'codo igual fitting cobre 12', 'grupo': 'Riego y tratamientos hidraulicos', 'subgrupo': 'Manguera', 'unidad': 'PZ', 'stock_total': 35, 'ubicaciones': {'almeiras': 6, 'santiago': 13, 'ferrol': 2, 'sandiego': 9, 'sanxenxo': 5}}, {'sku': '01006', 'descripcion': 'CODO 90º CU H-H 5090 D.22', 'producto': 'codo 90º cu h-h 5090 d.22', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 946, 'ubicaciones': {'almeiras': 215, 'santiago': 78, 'ferrol': 138, 'sandiego': 21, 'sanxenxo': 494}}, {'sku': '01000', 'descripcion': 'CODO 90º CU H-H 5090 D.10', 'producto': 'codo 90º cu h-h 5090 d.10', 'grupo': 'Tuberia y accesorios', 'subgrupo': 'Accesorios y racoreria - Cobre', 'unidad': 'PZ', 'stock_total': 53, 'ubicaciones': {'almeiras': 14, 'santiago': 7, 'ferrol': 12, 'sandiego': 14, 'sanxenxo': 6}}]
+2026-02-09 15:36:25,409 | INFO | AGENT | Respuesta STOCK generada correctamente

@@ -1,0 +1,20 @@
+domains:
+  - nombre: stock
+    descripcion: Consultas sobre disponibilidad o stock de productos
+    handler: stock
+    max_results: 3
+
+  - nombre: producto
+    descripcion: Consultas generales sobre productos, modelos o categorías
+    handler: rag_producto
+    max_results: 3
+
+  - nombre: informacion
+    descripcion: Horarios, tiendas, datos institucionales y contacto
+    handler: rag_info
+    max_results: 3
+
+  - nombre: out_of_scope
+    descripcion: Cualquier consulta fuera del alcance del asistente
+    handler: humano
+    max_results: 3

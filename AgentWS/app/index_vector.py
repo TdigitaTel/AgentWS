@@ -1,77 +1,42 @@
-import faiss
-import numpy as np
 import os
+import psycopg2
 from openai import OpenAI
 from dotenv import load_dotenv
 from app.logger import get_logger
 
-# =========================
-# CONFIGURACIÓN INICIAL
-# =========================
+# ==========================================
+# CONFIGURACIÓN
+# ==========================================
 
 load_dotenv()
-logger = get_logger("FAISS")
+logger = get_logger("PGVECTOR")
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# =========================
-# CARGA DE ÍNDICES FAISS
-# (SE CARGAN UNA SOLA VEZ)
-# =========================
-
-INDICES = {}
-
-def cargar_indices():
-    """
-    Carga todos los índices FAISS disponibles.
-    Se ejecuta una sola vez al iniciar la app.
-    """
-    global INDICES
-
-    INDICES = {
-        "stock": {
-            "index": faiss.read_index("data/faiss_stock_single.index"),
-            "meta": np.load("data/faiss_stock_single_meta.npy", allow_pickle=True)
-        },
-        "informacion": {
-            "index": faiss.read_index("data/info_index.faiss"),
-            "meta": np.load("data/info_meta.npy", allow_pickle=True)
-        }
-    }
-
-    logger.info(f"Índices FAISS cargados: {list(INDICES.keys())}")
+DB_CONFIG = {
+    "dbname": "agentws",
+    "user": "luisrojas",
+    "password": "",
+    "host": "localhost",
+    "port": "5432"
+}
 
 
-# Cargar automáticamente al importar el módulo
-cargar_indices()
-
-# =========================
+# ==========================================
 # FUNCIÓN GENERAL DE BÚSQUEDA
-# =========================
+# ==========================================
 
-def buscar_similares(
-    texto: str,
-    index_name: str,
-    top_k: int = 5
-):
-    """
-    Búsqueda semántica FAISS controlada por índice.
-
-    Parámetros:
-    - texto: texto de búsqueda (string obligatorio)
-    - index_name: nombre del índice FAISS ("stock", "informacion", etc.)
-    - top_k: número máximo de resultados
-    """
+def buscar_similares(texto: str, index_name: str, top_k: int = 5):
 
     if not texto or not texto.strip():
-        logger.warning("FAISS → texto vacío")
+        logger.warning("PGVECTOR → texto vacío")
         return []
 
-    if index_name not in INDICES:
-        logger.error(f"FAISS → índice no registrado: {index_name}")
+    if index_name not in ["stock", "informacion"]:
+        logger.error(f"PGVECTOR → índice no válido: {index_name}")
         return []
 
-    logger.info(f"FAISS → index={index_name}, texto='{texto}', top_k={top_k}")
+    logger.info(f"PGVECTOR → index={index_name}, texto='{texto}', top_k={top_k}")
 
     # 1️⃣ Generar embedding
     embedding = client.embeddings.create(
@@ -79,20 +44,86 @@ def buscar_similares(
         input=texto
     ).data[0].embedding
 
-    vector = np.array([embedding], dtype="float32")
+    # 🔥 CAMBIO CLAVE: convertir a string vector
+    embedding_str = "[" + ",".join(str(x) for x in embedding) + "]"
 
-    # 2️⃣ Buscar en índice correspondiente
-    index = INDICES[index_name]["index"]
-    metadata = INDICES[index_name]["meta"]
+    conn = psycopg2.connect(**DB_CONFIG)
+    cur = conn.cursor()
 
-    _, indices = index.search(vector, top_k)
+    # ==========================================
+    # PRODUCTOS (RANKING HÍBRIDO)
+    # ==========================================
 
-    # 3️⃣ Mapear resultados
-    resultados = []
-    for idx in indices[0]:
-        if idx < 0 or idx >= len(metadata):
-            continue
-        resultados.append(metadata[idx])
+    if index_name == "stock":
 
-    logger.info(f"FAISS → resultados devueltos ({index_name}): {len(resultados)}")
+        sql = """
+        WITH resultados AS (
+            SELECT 
+                p.id,
+                p.descripcion,
+                1 - (pe.embedding <=> %s::vector) AS similarity,
+                COALESCE(SUM(s.quantity), 0) AS total_stock
+            FROM public.product_embeddings pe
+            JOIN public.products p ON p.id = pe.product_id
+            LEFT JOIN public.stock s ON s.product_id = p.id
+            GROUP BY p.id, p.descripcion, pe.embedding
+        )
+        SELECT *
+        FROM resultados
+        ORDER BY
+            (similarity * 0.7) +
+            (LOG(1 + total_stock) * 0.3) DESC
+        LIMIT %s;
+        """
+
+        cur.execute(sql, (embedding_str, top_k))
+        rows = cur.fetchall()
+
+        resultados = []
+        for r in rows:
+            resultados.append({
+                "id": r[0],
+                "descripcion": r[1],
+                "similarity": float(r[2]),
+                "stock_total": int(r[3]),
+                "ubicaciones": {}  # puedes completarlo luego si quieres por tienda
+            })
+
+    # ==========================================
+    # TIENDAS (SOLO SIMILARIDAD)
+    # ==========================================
+
+    else:
+
+        sql = """
+        SELECT 
+            s.id,
+            s.name,
+            s.address,
+            s.phone,
+            1 - (se.embedding <=> %s::vector) AS similarity
+        FROM public.store_embeddings se
+        JOIN public.stores s ON s.id = se.store_id
+        ORDER BY se.embedding <=> %s::vector
+        LIMIT %s;
+        """
+
+        cur.execute(sql, (embedding_str, embedding_str, top_k))
+        rows = cur.fetchall()
+
+        resultados = []
+        for r in rows:
+            resultados.append({
+                "id": r[0],
+                "nombre": r[1],
+                "direccion": r[2],
+                "telefono": r[3],
+                "similarity": float(r[4])
+            })
+
+    cur.close()
+    conn.close()
+
+    logger.info(f"PGVECTOR → resultados devueltos ({index_name}): {len(resultados)}")
+
     return resultados
